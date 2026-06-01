@@ -633,7 +633,7 @@ pub async fn run(args: Args) -> Result<()> {
             }
 
             // Link new version
-            if let Err(e) = link_package(&install_path, &paths.prefix) {
+            if let Err(e) = link_package(&install_path, &paths.prefix, false) {
                 upgrade_errors.push((candidate.name.clone(), format!("link failed: {}", e)));
                 // Package is extracted but not linked - user can manually fix
                 continue;

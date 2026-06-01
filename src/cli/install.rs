@@ -662,7 +662,7 @@ async fn install_formulas(
                 .await
                 .context(format!("Failed to build {} from source", step.name))?;
 
-            link_package(&result.install_path, &paths.prefix)?;
+            link_package(&result.install_path, &paths.prefix, false)?;
 
             let runtime_deps: Vec<RuntimeDependency> = formula
                 .runtime_deps()
@@ -728,7 +728,7 @@ async fn install_formulas(
                 .await
                 .context(format!("Failed to build {} from HEAD", step.name))?;
 
-            link_package(&result.install_path, &paths.prefix)?;
+            link_package(&result.install_path, &paths.prefix, false)?;
 
             let runtime_deps: Vec<RuntimeDependency> = formula
                 .runtime_deps()
